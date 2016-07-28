@@ -48,13 +48,13 @@ function draw() {
 
   for (i=0;i<10;i++) {
   fill(255,0,0)
-  rect(bar[i],bar[i][0],bar[i][1],bar[i][2],bar[i][3])
+  rect(bar[i][0],bar[i][1],bar[i][2],bar[i][3])
   }
   //rising bars
   
-  for (i2=0;i2<10;i++) {
+  for (i2=0;i2<10;i2++) {
   fill(0,0,255)
-  ellipse(ball[i2],ball[i2][0],ball[i2][1],ball[i2][2],ball[i2][3])
+  ellipse(ball[i2][0],ball[i2][1],ball[i2][2],ball[i2][3])
   }
   //bouncing balls
   
