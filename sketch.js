@@ -11,8 +11,10 @@ function setup() {
   
   mic = new p5.AudioIn();
    mic.start();
-   fft = new p5.FFT();
-   fft.setInput(mic);
+   freq = new p5.FFT();
+   freq.setInput(mic);
+   
+  song.play()
    
    bar=[
      [0,950,100,50],
@@ -27,7 +29,7 @@ function setup() {
      [900,950,100,50],
      ]
      
-     ball=[
+   ball=[
      [50,900,100,100],
      [150,900,100,100],
      [250,900,100,100],
@@ -39,37 +41,50 @@ function setup() {
      [850,900,100,100],
      [950,900,100,100],
      ]
+     
+//  spect=[15,30,45,60,75,90,105,120,135,150]
 }
 
 function draw() {
   background(0)
   
-  song.play()
-
+  var spectrum = freq.analyze();
+//  console.log(spectrum)
+//  console.log(spectrum[100])
+  
   for (i=0;i<10;i++) {
-  fill(255,0,0)
-  rect(bar[i][0],bar[i][1],bar[i][2],bar[i][3])
+    fill(255,0,0)
+    rect(bar[i][0],bar[i][1],bar[i][2],bar[i][3])
+  
+//  if (spectrum>0 && spectrum<2000) {
+    rect(bar[i][0],map(spectrum[100], 0, 150, height, 0),bar[i][2],map(spectrum[100], 0, 150, height, 0))
+//    rect(map(spectrum.getlevel(), 0, 1, height, 0),bar[i][1],map(spectrum.getlevel(), 0, 1, height, 0),bar[i][3])
   }
+  
+//  beginShape();
+//   for (i3 = 0; i3<spectrum.length; i3++) {
+//     fill(255,0,0)
+//     rect(map(spectrum[i3], 0, 25.5, height, 0),bar[i][1],bar[i][2],bar[i][3])
+//    vertex(i, map(spectrum[i], 0, 255, height, 0) );
+//   }
+//   endShape();
+  
+  //}
   //rising bars
   
   for (i2=0;i2<10;i2++) {
   fill(0,0,255)
   ellipse(ball[i2][0],ball[i2][1],ball[i2][2],ball[i2][3])
+  
+//  beginShape();
+//   for (i4 = 0; i4<spectrum.length; i4++) {
+//     fill(0,0,255)
+//     ellipse(map(spectrum[i4], 0, 25.5, height, 0),ball[i2][1],ball[i2][2],ball[i2][3])
+//    vertex(i, map(spectrum[i], 0, 255, height, 0) );
+//   }
+//   endShape();
+  
   }
   //bouncing balls
-  
-//  var spectrum = fft.analyze();
-
-//   beginShape();
-//   for (bar[0] = 0; bar[0]<spectrum.length; bar[0]++) {
-//    rect(bar[0], map(spectrum[bar[0]], 0, 25.5, height, 0) );
-//   }
-//   endShape();
-   
-//   beginShape();
-//   for (ball[0] = 0; bar[0]<spectrum.length; i++) {
-//    ellipse(bar[0], map(spectrum[bar[0]], 0, 25.5, height, 0) );
-//   }
-//   endShape();
   
 }
