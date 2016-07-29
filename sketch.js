@@ -42,7 +42,7 @@ function setup() {
      [950,900,100,100],
      ]
      
-//  spect=[15,30,45,60,75,90,105,120,135,150]
+//  spect=[100,30,45,60,75,90,105,120,135,150]
 }
 
 function draw() {
@@ -57,7 +57,7 @@ function draw() {
     rect(bar[i][0],bar[i][1],bar[i][2],bar[i][3])
   
 //  if (spectrum>0 && spectrum<2000) {
-    rect(bar[i][0],map(spectrum[100], 0, 150, height, 0),bar[i][2],map(spectrum[100], 0, 150, height, 0))
+    rect(bar[i][0],map(spectrum[i*100], 0, 150, height, 0),bar[i][2],map(spectrum[i*100], 0, 150, height, 0))
 //    rect(map(spectrum.getlevel(), 0, 1, height, 0),bar[i][1],map(spectrum.getlevel(), 0, 1, height, 0),bar[i][3])
   }
   
@@ -75,6 +75,8 @@ function draw() {
   for (i2=0;i2<10;i2++) {
   fill(0,0,255)
   ellipse(ball[i2][0],ball[i2][1],ball[i2][2],ball[i2][3])
+  
+  ellipse(ball[i2][0],map(spectrum[i2*100], 0, 150, height-50, 0),ball[i2][2],ball[i2][3])
   
 //  beginShape();
 //   for (i4 = 0; i4<spectrum.length; i4++) {
