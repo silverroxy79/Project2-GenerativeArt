@@ -82,19 +82,19 @@ function draw() {
     fill(random(0,255),random(0,255),random(0,255),random(75,125))
     rect(bar1[i][0],bar1[i][1],bar1[i][2],bar1[i][3])
     fill(random(0,255),random(0,255),random(0,255),random(75,125))
-    rect(bar1[i][0],map(spectrum[i*100], 0, 150, height, 0),bar1[i][2],map(spectrum[i*100], 0, 150, height, 0))
+    rect(bar1[i][0],map(spectrum[i*60], 0, 150, height, 0),bar1[i][2],map(spectrum[i*60], 0, 150, height, 0))
 //rising bars 
 
     fill(random(0,255),random(0,255),random(0,255),random(75,125))
     rect(bar2[i][0],bar2[i][1],bar2[i][2],bar2[i][3])
     fill(random(0,255),random(0,255),random(0,255),random(75,125))
-    rect(bar2[i][0],map(spectrum[i*100], 0, 150, 0, height),bar2[i][2],map(spectrum[i*100], 0, 150, 0, height))
+    rect(bar2[i][0],map(spectrum[i*60], 0, 150, 0, height),bar2[i][2],map(spectrum[i*60], 0, 150, 0, height))
 //falling bars  
 
   fill(random(0,255),random(75,125))
-  ellipse(map(spectrum[i*100], 0, 150, width-50, 0),ball1[i][1],ball1[i][2],ball1[i][3])
+  ellipse(map(spectrum[i*60], 0, 150, width-50, 0),ball1[i][1],ball1[i][2],ball1[i][3])
   fill(random(0,255),random(75,125))
-  ellipse(map(spectrum[i*100], 0, 150, 0, width-50),ball2[i][1],ball2[i][2],ball2[i][3])
+  ellipse(map(spectrum[i*60], 0, 150, 0, width-50),ball2[i][1],ball2[i][2],ball2[i][3])
 //bouncing balls    
   }
 }
